@@ -14,20 +14,21 @@ function chooseLastItem() {
     var lastItem = document.getElementById(methodsClass).lastChild
 
     if (lastItem) {
-        lastItem.setAttribute('style', 'color:blue')
+        // lastItem.setAttribute('style', 'color:blue')
+        lastItem.classList.add('chosen')
     } else {
         console.log('There is no any item!')
     }
 }
 
 function chooseNextItem() {
-    var next = document.getElementsByClassName('next');
-
-    for (var i = 0; i < next.length; i++) {
-        next = document.getElementsByClassName('next')[i];
-        next.nextSibling.innerHTML = next[i]
-    }
-    // треба щоб кожен елемент по порядку вибирав клік кнопки а вибирає всі разом
+    cleanAllChosen()
+    // var next = document.getElementsByClassName('next');
+    //
+    // for (var i = 0; i < next.length; i++) {
+    //     next = document.getElementsByClassName('next')[i];
+    //     next.nextSibling.innerHTML = next[i]
+    // }
 }
 
 function appendItem(form) {
@@ -61,6 +62,16 @@ function prependItem(form) {
             firstItem.parentNode.insertBefore(newItem, firstItem);
         } else {
             allItems.appendChild(newItem)
+        }
+    }
+}
+
+function cleanAllChosen() {
+    let allItems = document.getElementById(methodsClass);
+
+    if (allItems) {
+        for (var item of allItems.children) {
+            item.classList.remove('chosen')
         }
     }
 }
