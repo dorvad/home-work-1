@@ -1,18 +1,30 @@
+const methodsClass = 'methods' // declare variable with useful value to avoid duplication
+
 function chooseFirstItem() {
-    var firstItem = document.getElementById('methods').firstChild
-    firstItem.setAttribute('style', 'color:blue')
+    var firstItem = document.getElementById(methodsClass).firstChild
+
+    if (firstItem) {
+        firstItem.setAttribute('style', 'color:blue')
+    } else {
+        console.log('There is no any item!')
+    }
 }
 
 function chooseLastItem() {
-    var lastItem = document.getElementById('methods').lastChild
-    lastItem.setAttribute('style', 'color:blue')
+    var lastItem = document.getElementById(methodsClass).lastChild
+
+    if (lastItem) {
+        lastItem.setAttribute('style', 'color:blue')
+    } else {
+        console.log('There is no any item!')
+    }
 }
 
 function chooseNextItem() {
     var next = document.getElementsByClassName('next');
 
     for (var i = 0; i < next.length; i++) {
-        var next = document.getElementsByClassName('next')[i];
+        next = document.getElementsByClassName('next')[i];
         next.nextSibling.innerHTML = next[i]
     }
     // треба щоб кожен елемент по порядку вибирав клік кнопки а вибирає всі разом
@@ -28,7 +40,7 @@ function appendItem(form) {
 }
 
 function deleteItem() {
-    var restoreItems = document.getElementById('methods').lastChild
+    var restoreItems = document.getElementById(methodsClass).lastChild
     if (restoreItems.parentNode) {
         restoreItems.parentNode.removeChild(restoreItems)
     }
