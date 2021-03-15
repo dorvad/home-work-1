@@ -35,7 +35,7 @@ function appendItem(form) {
     if (form.inputText.value) {
         var newItem = document.createElement("li");
         newItem.innerHTML = value;
-        document.getElementById("methods").appendChild(newItem);
+        document.getElementById(methodsClass).appendChild(newItem);
     }
 }
 
@@ -52,7 +52,7 @@ function prependItem(form) {
         var newItem = document.createElement("li"); // declare new first item
         newItem.innerHTML = form.inputText.value; // init value for new first item
 
-        let allItems = document.getElementById("methods"); // get all items from element by id
+        let allItems = document.getElementById(methodsClass); // get all items from element by id
 
         if (!allItems) {
             console.log('There is no element with the given id!')
