@@ -1,7 +1,7 @@
 const methodsClass = 'methods' // declare variable with useful value to avoid duplication
 
 function chooseFirstItem() {
-    cleanLastChosenId()
+    cleanLastChosenClass()
     var firstItem = document.getElementById(methodsClass).firstChild
 
     if (firstItem) {
@@ -12,7 +12,7 @@ function chooseFirstItem() {
 }
 
 function chooseLastItem() {
-    cleanLastChosenId()
+    cleanLastChosenClass()
     var lastItem = document.getElementById(methodsClass).lastChild
 
     if (lastItem) {
@@ -27,7 +27,7 @@ function chooseNextItem() {
 
     let lastChosen = getLastChosenElement();
 
-    cleanLastChosenId();
+    cleanLastChosenClass();
 
     if (lastChosen) {
         let nextElementSibling = lastChosen.nextElementSibling;
@@ -88,8 +88,8 @@ function cleanAllChosenClasses() {
     }
 }
 
-function cleanLastChosenId() {
-    let allItems = document.getElementById(methodsClass);
+function cleanLastChosenClass() {
+    let allItems = document.getElementById(methodsClass)
 
     if (allItems) {
         for (var item of allItems.children) {
