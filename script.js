@@ -1,34 +1,46 @@
 const methodsClass = 'methods' // declare variable with useful value to avoid duplication
 
 function chooseFirstItem() {
+    cleanLastChosenId()
     var firstItem = document.getElementById(methodsClass).firstChild
 
     if (firstItem) {
-        firstItem.setAttribute('style', 'color:blue')
+        setLastChosenClasses(firstItem)
     } else {
         console.log('There is no any item!')
     }
 }
 
 function chooseLastItem() {
+    cleanLastChosenId()
     var lastItem = document.getElementById(methodsClass).lastChild
 
     if (lastItem) {
-        // lastItem.setAttribute('style', 'color:blue')
-        lastItem.classList.add('chosen')
+        setLastChosenClasses(lastItem)
     } else {
         console.log('There is no any item!')
     }
 }
 
 function chooseNextItem() {
-    cleanAllChosen()
-    // var next = document.getElementsByClassName('next');
-    //
-    // for (var i = 0; i < next.length; i++) {
-    //     next = document.getElementsByClassName('next')[i];
-    //     next.nextSibling.innerHTML = next[i]
-    // }
+    cleanAllChosenClasses()
+
+    let lastChosen = getLastChosenElement();
+
+    cleanLastChosenId();
+
+    if (lastChosen) {
+        let nextElementSibling = lastChosen.nextElementSibling;
+
+        if (nextElementSibling) {
+            setLastChosenClasses(nextElementSibling)
+        } else {
+            chooseFirstItem()
+        }
+    } else {
+        chooseFirstItem()
+    }
+
 }
 
 function appendItem(form) {
@@ -66,7 +78,7 @@ function prependItem(form) {
     }
 }
 
-function cleanAllChosen() {
+function cleanAllChosenClasses() {
     let allItems = document.getElementById(methodsClass);
 
     if (allItems) {
@@ -75,3 +87,35 @@ function cleanAllChosen() {
         }
     }
 }
+
+function cleanLastChosenId() {
+    let allItems = document.getElementById(methodsClass);
+
+    if (allItems) {
+        for (var item of allItems.children) {
+            item.classList.remove('last_chosen')
+        }
+    }
+}
+
+function setLastChosenClasses(element) {
+    if (element) {
+        element.classList.add('chosen')
+        element.classList.add('last_chosen')
+    } else {
+        console.log('Invalid element!')
+    }
+}
+
+function getLastChosenElement() {
+
+    let elementsByClassName = document.getElementsByClassName('last_chosen');
+
+    var lastElement
+
+    if (elementsByClassName && elementsByClassName.length > 0) {
+        lastElement = elementsByClassName[0]
+    }
+    return lastElement;
+}
+
