@@ -18,7 +18,7 @@ function chooseNextItem() {
     // треба щоб кожен елемент по порядку вибирав клік кнопки а вибирає всі разом
 }
 
-function appendText(form) {
+function appendItem(form) {
     let value = form.inputText.value;
     if (form.inputText.value) {
         var newItem = document.createElement("li");
@@ -27,14 +27,14 @@ function appendText(form) {
     }
 }
 
-function restoreItem() {
+function deleteItem() {
     var restoreItems = document.getElementById('methods').lastChild
     if (restoreItems.parentNode) {
         restoreItems.parentNode.removeChild(restoreItems)
     }
 }
 
-function appendBefore(form) {
+function prependItem(form) {
     let value = form.inputText.value;
     if (value) {
         var newItem = document.createElement("li"); // declare new first item
@@ -43,7 +43,7 @@ function appendBefore(form) {
         let allItems = document.getElementById("methods"); // get all items from element by id
 
         if (!allItems) {
-            console.log('There is element with given id!')
+            console.log('There is no element with the given id!')
         } else if (allItems.length > 0) {
             var firstItem = allItems.children[0]
             firstItem.parentNode.insertBefore(newItem, firstItem);
