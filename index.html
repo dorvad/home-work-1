@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>DOM_Methods</h1>
+        <ul id="methods"><li id="first" class="next">appendChild</li><li class="next">insertBefore</li><li class="next">removeChild</li><li class="next">replaceChild</li><li class="next">createTextNode</li><li class="next">createElement</li></ul>
+        <form action="">
+            <input type="text" id="enterText" name="inputText">
+            <input type="button" value="Вибрати перший елемент" onclick="chooseFirstItem ()">
+            <input type="button" value="Вибрати останній елемент" onclick="chooseLastItem()">
+            <input type="button" value="Вибрати наступний елемент" onclick="chooseNextItem()">
+            <input type="button" value="Вибрати попередній елемент" onclick="">
+            <input type="button" value="Добавити елемент" onclick="appendText(this.form)">
+            <input type="button" value="Видалити елемент" onclick="restoreItem()">
+            <input type="button" value="Добавити на початок елемент" onclick="appendBefore(this.form)">
+        </form>
+    </div>
+</body>
+</html>
